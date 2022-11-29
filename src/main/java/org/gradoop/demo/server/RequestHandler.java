@@ -508,9 +508,12 @@ public class RequestHandler {
       jsonObject.put("vertexLabels", getVertexLabels(graph));
       jsonObject.put("edgeLabels", getEdgeLabels(graph));
       jsonObject.put("spatialData", getSpatialData(graph));
-      String dataPath = RequestHandler.class.getResource(String.format("/data/%s/%s", databaseName, META_FILENAME))
-        .getFile();
-      FileWriter writer = new FileWriter(dataPath);
+      //String dataPath = RequestHandler.class.getResource(String.format("/data/%s/%s", databaseName, META_FILENAME))
+      //.getFile();
+
+      String testPath = "."+File.separator+"src" + File.separator + "main" + File.separator + "resources"+File.separator + "data" + File.separator + databaseName + File.separator + META_FILENAME;
+
+      FileWriter writer = new FileWriter(testPath);
       jsonObject.write(writer);
       writer.flush();
       writer.close();
